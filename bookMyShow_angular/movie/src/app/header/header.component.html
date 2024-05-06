@@ -1,0 +1,91 @@
+
+ <header class="bg-white shadow">
+  <div class="container-fluid">
+      <div class="row align-items-center">
+          <div class="col-6 col-sm-4">
+              <div class="d-flex align-items-center">
+                  <div>
+                      <img src="https://dtnext-prod.s3.ap-south-1.amazonaws.com/h-upload/2023/12/06/784646-bookmyshow.jpg" class="img-fluid ehNLUl" (click)="bookMyShowIcon()">
+                  </div>              
+              </div>
+          </div>
+          <div class="col-6 col-sm-8 text-end">
+            <div class="jfsXdp"> 
+              <!-- <div class="noIEC">
+                <span *ngIf="currentUser" class="text-dark" style="font-style:initial;font-size:16px">Hey! {{ currentUser.userName }}</span>
+             </div> -->
+              <div class="noIEC ">
+                <button class="btn btn-primary" (click)="logout()">Logout</button>
+                <div class="fcOOgI" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEnd"  aria-controls="offcanvas">
+                  <i class="bi bi-list"  style="font-size:25px"></i> 
+                </div>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEnd" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel" style="font-weight: 600; font-size: 22px; color: rgb(64, 64, 64);">Hey! {{ currentUser.userName }}</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr style="border: 1px solid black">
+        <div class="offcanvas-body">
+          <div *ngIf="!showOrdersTable" (click)="toggleOrdersTable()" style="cursor: pointer;">
+            <h2 style="text-align: center; display: flex;">Your Orders <i class="bi bi-chevron-right"></i></h2>
+          </div>
+          <div *ngIf="showOrdersTable">
+            <ng-container *ngIf="orders.length > 0; else noOrdersFound">
+              <table class="table table-bordered mt-3">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">Date</th>
+                    <th scope="col" class="text-center">Movie Title</th>
+                    <th scope="col" class="text-center">Theater Name</th>
+                    <th scope="col" class="text-center">Timing</th>
+                    <th scope="col" class="text-center">Seats</th>
+                    <th scope="col" class="text-center">Total Price (Rs.)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of orders; let i = index">
+                    <td>{{ order.date }}</td>
+                    <td>{{ order.movieTitle }}</td>
+                    <td>{{ order.theaterName }}</td>
+                    <td>{{ order.timing }}</td>
+                    <td>{{ order.seats }}</td>
+                    <td>{{ order.totalTicketPrice }}/-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-container>
+            <button (click)="toggleOrdersTable2()" class="btn btn-secondary d-flex">Back</button>
+            <br>
+            <ng-template #noOrdersFound>
+              <div class="alert alert-warning" role="alert">
+                No orders found.
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+                    </div>
+          </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="ePaTdj">
+    <div class="eDUTVN">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-end ehingX">
+              <a class="active dTAxii">Movies</a>
+              <a class="dTAxii">Stream</a>
+              <a  class="dTAxii">Events</a>
+              <a  class="dTAxii">Plays</a>
+              <a  class="dTAxii">Sports</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

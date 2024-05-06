@@ -1,0 +1,95 @@
+<!-- 
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center">
+            <h1 class="modal-title mt-2" >Ticket Details</h1>
+          </div>
+          <hr>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Date</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.date }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Movie Name</strong></div>
+              <div class="col-sm-8"><b>:</b>   {{ data.movieTitle }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Theatre Name</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.theaterName }} - {{ data.theaterLocation }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Timing</strong></div>
+              <div class="col-sm-8"><b>:</b>   {{ data.timing }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Seats</strong></div>
+              <div class="col-sm-8"><b>:</b>   {{ data.seats.join(', ') }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Total Price</strong></div>
+              <div class="col-sm-8"><b>:</b>   {{ data.totalTicketPrice }}</div>
+            </div>
+          </div>
+        </div>
+<hr>
+        <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" (click)="onConfirmClick()">Confirm Ticket</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="onCancelClick()">Cancel</button>
+          </div><br>
+      </div>
+    </div> -->
+
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center">
+          <h1 class="modal-title mt-2">Ticket Details</h1>
+        </div>
+        <hr>
+        <!-- <div class="modal-body">
+          <div class="container">
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Date</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.date }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Movie Name</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.movieTitle }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Theatre Name</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.theaterName }} - {{ data.theaterLocation }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Timing</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.timing }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Seats</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.seats.join(', ') }}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-4"><strong>Total Price</strong></div>
+              <div class="col-sm-8"><b>:</b> {{ data.totalTicketPrice }}</div>
+            </div>
+          </div>
+        </div> -->
+        <div class="modal-body row" style="margin-right:0px !important;margin-left: 5px;">
+          <div class="row my-1" style="float: left;"><span class="col-4"><b>Title</b></span><span class="col-1">:</span><span class="col-5">{{data.date}}</span></div>
+          <div class="row my-1" style="float: left;"><span class="col-4"><b>Date</b></span><span class="col-1">:</span><span class="col-6">{{ data.movieTitle }}</span></div>
+          <div class="row my-1" style="float: left;"><span class="col-4"><b>Theater</b></span><span class="col-1">:</span><span class="col-6"> {{ data.theaterName }} - {{ data.theaterLocation }}</span></div>
+          <div class="row my-1" style="float: left;"><span class="col-4"><b>ShowTime</b></span><span class="col-1">:</span><span class="col-6">{{ data.timing }}</span></div>
+          <div class="row my-1" style="float: left;"><span class="col-4"><b>Seats</b></span><span class="col-1">:</span><span class="col-6">{{ data.seats.join(', ') }}</span></div>
+          <div class="row my-1" style="float: left;"><span class="col-4"><b>Price</b></span><span class="col-1">:</span><span class="col-6">{{ data.totalTicketPrice }}</span></div>
+      </div>
+        <hr>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-primary" (click)="onConfirmClick()">Confirm Ticket</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="onCancelClick()">Cancel</button>
+        </div>
+        <br>
+      </div>
+    </div>
+    

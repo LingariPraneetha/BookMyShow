@@ -1,0 +1,26 @@
+<!-- <app-header class=" d-none d-sm-block"></app-header> -->
+<app-header></app-header>
+<app-carousel class=" d-none d-sm-block"></app-carousel>
+<br> 
+<div class="container mt-2">
+    <div class="row">
+        <h2 class="col-12" style="font-size: 24px; color: #333; font-family: Roboto; font-weight: 700;"><b>Recommended Movies</b></h2>
+    </div>
+    <div class="row movie-list-container justify-content-center">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let movie of movies">
+            <div class="card movie-container" (click)="navigateToMovieDetails(movie.id)">
+                <img [src]="movie.image_url" class="card-img-top movie-image" alt="{{ movie.title }} Image">
+                <div class="card-body">
+                    <p class="card-text" style="color: #fff; font-size: 17px;">{{ movie.rating }}</p>
+                </div>
+            </div>
+          <h5 class="card-title" style="font-size:20px"><b>{{ movie.title }}</b></h5>
+            <p class="card-text">{{ movie.genre }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5" style="padding: 0;">
+    <img src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png" class="img-fluid rounded promotional-image" alt="Promotional Image">
+</div>
+

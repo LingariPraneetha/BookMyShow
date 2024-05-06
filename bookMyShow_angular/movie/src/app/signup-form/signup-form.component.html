@@ -1,0 +1,65 @@
+<app-navbar></app-navbar> 
+
+<div class="container mt-3">
+    <div class="card p-5 mx-auto" style="max-width: 450px;box-shadow:0 0 20px rgba(0,0,0,0.2)">
+        <h1 style="text-align:center">Sign Up</h1>
+        <form (ngSubmit)="submitDetails(signupForm)" #signupForm="ngForm">
+            <div class="form-group">
+                <label class="pb-1">User name <sup style="color:red">*</sup></label>
+                <input type="text" [(ngModel)]="name" name="name" #nameInput="ngModel" class="form-control" id="name" placeholder="User name"
+                pattern="^[a-zA-Z\s]*$"    pattern="[^$&+,:;=?@#|'>.^*()%!-1234567890](\s+\S+\s+\s+\S*)*(?!\s).[^$&+,:;=?@#|'>.^*()%!-1234567890]*$"  (keypress)="username($event)" required>
+                <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="text-danger">
+                    <div *ngIf="nameInput.hasError('required')">User name is required.</div>
+        <div *ngIf="nameInput.hasError('pattern')">Name should only contain alphabetic characters</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="pb-1 pt-2">Email <sup style="color:red">*</sup></label><br>
+                <input type="email" [(ngModel)]="email" name="email" #emailInput="ngModel" class="form-control" id="email" placeholder="Email" 
+                pattern="^[a-zA-Z]+[a-zA-Z0-9._]+@gmail\.com$" required>
+                <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                    <div *ngIf="emailInput.hasError('required')">Email is required.</div>
+        <div *ngIf="emailInput.hasError('pattern')">Invalid email format.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="pb-1 pt-2">Mobile number <sup style="color:red">*</sup></label>
+                <input type="text" appPhoneMask [(ngModel)]="mobileNumber" name="mobileNumber" #mobileNumberInput="ngModel" 
+                  class="form-control" id="mobileNumber" placeholder="Mobile number" minlength="10" required>
+                <div *ngIf="(mobileNumberInput.invalid && (mobileNumberInput.dirty || mobileNumberInput.touched)) || (mobileNumber && mobileNumber.length === 0)" class="text-danger">
+                  <div *ngIf="mobileNumberInput.hasError('required')">Mobile number is required.</div>
+                  <div *ngIf="mobileNumberInput.invalid && mobileNumberInput.errors?.['invalidFirstDigit']" class="text-danger">
+                    <div>Invalid number.</div>
+                  </div>
+                </div>
+              </div>
+            
+        <div class="form-group">
+            <label class="pb-1 pt-2">Password <sup style="color:red">*</sup></label>
+            <div class="password-input" style="position:relative">
+              <input type="password" [(ngModel)]="password" name="password" #passwordInput="ngModel" autocomplete="new-password"
+                     [type]="hide ? 'password' : 'text'" class="form-control" id="password" placeholder="Password" minlength="8" maxlength="20" required
+                     pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$">
+              <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" style="position: absolute; right: 10px; top: 46%; transform: translateY(-50%);">
+                <mat-icon>
+                  <i *ngIf="hide" class="bi bi-eye-slash-fill"></i>
+                  <i *ngIf="!hide" class="bi bi-eye"></i>
+                </mat-icon>
+              </button>
+            </div>
+            <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+              <div *ngIf="passwordInput.hasError('required')">Password is required.</div>
+              <div *ngIf="passwordInput.hasError('minlength')">At least 8 characters.</div>
+              <div *ngIf="passwordInput.hasError('pattern')">
+                Password must contain at least one number and one special character (!@#$%^&*).
+              </div>
+            </div>
+          </div>
+            
+            <button type="submit" class="btn btn-primary mt-4" [disabled]="signupForm.invalid">Sign Up</button>
+        </form>
+        <span class="text-center pt-2">Already have an account? <a routerLink="/login" style="color: blue;">Login</a></span>
+    </div>
+</div>

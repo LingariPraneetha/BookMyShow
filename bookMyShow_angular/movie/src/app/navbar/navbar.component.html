@@ -1,0 +1,11 @@
+<div class="topnav">
+    <a class="active" (click)="BookMyShow()">BookMyShow</a>
+   
+    <div class="login-container" *ngIf="shouldShowLoginButton()">
+        <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+        
+    </div>
+  </div>
+  <div *ngIf="shouldShowWelcomeMessage()" class="welcome-message">
+    <h1><b>Welcome to Book My Show</b></h1>
+  </div>

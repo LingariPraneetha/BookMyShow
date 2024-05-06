@@ -1,0 +1,61 @@
+
+  .theater-container {
+    margin-bottom: 20px;
+  }
+  
+  .show-timings-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  /* .timing-box {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 6px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  } */
+.timing-box{
+  border: 1px solid #999;
+    color: #4abd5d;
+    padding: 4px;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+  .timing-box:hover {
+    background-color: #ddd;
+  }
+
+  .movieTitle{
+    margin-left:2%;
+    font-size:36px;
+  }
+
+
+.ticket-price {
+ color:black;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 15px;
+  box-shadow: 5px 5px 5px 5px #e0e0e0;
+  position:fixed;
+ 
+}
+.disabled {
+  opacity: 0.5; 
+  cursor: not-allowed;
+}
+

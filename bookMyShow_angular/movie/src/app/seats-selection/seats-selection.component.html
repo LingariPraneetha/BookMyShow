@@ -1,0 +1,142 @@
+<!--   
+  <div class="seats-selection-container container mt-5">
+    <div class="row"  style="background-color: #f2f2f2; padding: 6px;display:flex">
+    <div class="row"  >
+      <div class="col">
+        <h1>{{ movieTitle }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>{{ theaterName }} - {{ theaterLocation }}</p>
+      </div>
+    </div>
+    </div><br>
+    <div class="row" style="background-color: #f2f2f2; padding: 6px;color:green;display:flex">
+      <div class="col">
+        <p>SELECTED TIME : {{ timing }}</p>
+      </div>
+    </div><br>
+    <div class="row" style="background-color: #f2f2f2; padding: 6px;color:green;display:flex">
+      <div class="col">
+        <p>SELECTED DATE : {{formattedDate}}</p>
+      </div>
+    </div><br>
+    <div class="col" style="background-color:#f2f2f2;">
+    <div class="col" style="display:flex">
+
+     <mat-form-field>
+        <mat-label>Select Number of Seats:</mat-label>
+        <mat-select [(ngModel)]="selectedSeatCount" (selectionChange)="onSeatCountChange()">
+          <mat-option *ngFor="let count of seatCounts" [value]="count">{{ count }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="seating-layout mt-3" style="max-width: 390px; width: 100%; margin: 0 auto;"><h1>Seating layout</h1>
+      <div class="seating-row">
+
+        <div *ngFor="let seatNumber of '1234567'.split('') ; let seatIndex = index" class="seat-column">
+          <div class="seat-number"
+          [class.booked]="isSeatBooked('A', seatNumber)"
+          [class.disabled]="isSeatBooked('A', seatNumber)"
+          (click)="bookSeat('A', seatNumber)"
+          >A{{ seatNumber }}</div>
+        </div>
+      </div>
+
+      <div class="seating-row">
+        
+        <div *ngFor="let seatNumber of '1234567'.split(''); let seatIndex = index"  class="seat-column">
+          <div class="seat-number"
+          [class.booked]="isSeatBooked('B', seatNumber)"
+          [class.disabled]="isSeatBooked('B', seatNumber)"
+          (click)="bookSeat('B', seatNumber)"
+          >B{{ seatNumber }}</div>
+        </div>
+      </div>
+      <div class="seating-row">
+       
+        <div *ngFor="let seatNumber of '123456789'.split('') ; let seatIndex = index"  class="seat-column">
+          <div class="seat-number"
+          [class.booked]="isSeatBooked('C', seatNumber)"
+          [class.disabled]="isSeatBooked('C', seatNumber)"
+          (click)="bookSeat('C', seatNumber)"
+          >C{{ seatNumber }}</div>
+        </div>
+      </div>
+      <div class="seating-row">
+       
+        <div *ngFor="let seatNumber of '12345678'.split('') ; let seatIndex = index"  class="seat-column">
+          <div class="seat-number"
+          [class.booked]="isSeatBooked('D', seatNumber)"
+          [class.disabled]="isSeatBooked('D', seatNumber)"
+          (click)="bookSeat('D', seatNumber)"
+          >D{{ seatNumber }}</div>
+        </div>
+      </div>
+       <div class="bookSeats" class="btn btn-primary" (click)="bookSeats()">BookSeats</div> 
+       
+    </div>
+  </div>
+<div class="seat-legends-wrapper sticky-bottom">
+  <div class="seat-legend-container">
+    <div class="seat-legend-box status-1"></div>
+    <div class="seat-legend-text">Avaliable</div>
+  </div>
+  <div class="seat-legend-container">
+    <div class="seat-legend-box status-2"></div>
+    <div class="seat-legend-text">selected</div>
+  </div>
+  <div class="seat-legend-container">
+    <div class="seat-legend-box status-3"></div>
+    <div class="seat-legend-text">sold</div>
+  
+  </div>
+</div>   -->
+
+<div class="seats-selection-container container-fluid mt-3">
+ 
+  <div class="row details" style=" padding: 0px;">
+    <div class="col" style="margin-left:20px">
+      <h3 style="color:#333333"><b>{{ movieTitle }}</b></h3>
+      <div class="col">
+        <p style="color:#181818;font:12px Roboto,sans-serif">{{ theaterName }} - {{ theaterLocation }} | {{ formattedDate }}, {{ timing }}</p> 
+      </div>
+    </div>
+    <hr>
+  </div>
+<div class="seating-layout mt-5" style="max-width:480px; width: 100%; margin: 0 auto;">
+ 
+    <div class="container1">
+      <div class="movie-row" *ngFor="let row of ['A', 'B', 'C', 'D', 'E']">
+        <div class="row-name">{{ row }}</div>
+        <div class="seat" *ngFor="let col of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [class]="isSeatSelected(row + col) ? 'seat selected': (isSeatBooked(row + col) ? 'seat booked' : 'seat')"  (click)="onSeatClick(row + col)">
+         {{ col }}
+        </div>
+      </div>
+      </div>
+  <div class="row justify-content-center">
+  <div class="col-sm-6 mt-5 text-center" >
+    <div class="trapezoid"></div>
+    <p style="font-size:12px">&nbsp;&nbsp;&nbsp;All eyes this way please!</p>
+    <button class="bookSeats btn btn-primary" (click)="bookSeats()" [disabled]="!isSelected">Book Seats</button>
+  </div>
+</div> 
+
+</div>
+
+<div class="seat-legends-wrapper sticky-bottom">
+  <div class="seat-legend-container">
+    <div class="seat-legend-box status-1"></div>
+    <div class="seat-legend-text">Available</div>
+  </div>
+  <div class="seat-legend-container">
+    <div class="seat-legend-box status-2"></div>
+    <div class="seat-legend-text">Selected</div>
+  </div>
+  <div class="seat-legend-container">
+    <div class="seat-legend-box status-3"></div>
+    <div class="seat-legend-text">Sold</div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<!-- <app-navbar></app-navbar>
+
+<div class="container mt-5" >
+  <div class="card p-5 mx-auto" style="width: 450px;box-shadow:0 0 20px rgba(0,0,0,0.2)">
+    <h1 style="text-align: center;">Sign In</h1>
+    <form (ngSubmit)="loginUser()" #loginForm="ngForm" autocomplete="new-password">
+        <div class="form-group">
+            <label class="pb-1 pt-2">Email <sup style="color:red">*</sup></label><br>
+            <input type="email" [(ngModel)]="email" name="email" #emailInput="ngModel" class="form-control" id="email" placeholder="Email" autocomplete="new-password"
+            pattern="^[a-zA-Z]+[a-zA-Z0-9._]+@gmail\.com$" required>
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                <div *ngIf="emailInput.hasError('required')">Email is required.</div>
+    <div *ngIf="emailInput.hasError('pattern')">Invalid email format.</div>
+            </div>
+        </div>
+
+       
+        <div class="form-group">
+            <label class="pb-1 pt-2">Password <sup style="color:red">*</sup></label>
+            <div class="password-input">
+              <input type="password" [(ngModel)]="password" name="password" #passwordInput="ngModel" autocomplete="new-password"
+                     [type]="hide ? 'password' : 'text'" class="form-control" id="password" placeholder="Password" minlength="8" maxlength="20" required>
+              <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" style="display:flex;margin-left:300px;margin-top:-45px;">
+                <mat-icon>
+                  <i *ngIf="hide" class="bi bi-eye-slash-fill"></i>
+                  <i *ngIf="!hide" class="bi bi-eye"></i>
+                </mat-icon>
+              </button>
+            </div>
+            <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+              <div *ngIf="passwordInput.hasError('required')">Password is required.</div>
+            </div>
+          </div>
+          
+        <div class="forgot password text-primary" style="cursor:pointer" (click)="ForgotPassword()">Forgot password?</div>
+        
+
+      <button type="submit" class="btn btn-primary mt-4"  [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <span class="pt-2">Don't have an account? <a routerLink="/signup" style="color: blue;">Sign Up</a></span>
+  </div>
+</div>
+ -->
+
+
+ <app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card p-5 mx-auto" style="max-width: 450px; box-shadow: 0 0 20px rgba(0,0,0,0.2)">
+    <h1 class="text-center">Sign In</h1>
+    <form (ngSubmit)="loginUser()" #loginForm="ngForm" autocomplete="new-password">
+      <div class="form-group">
+        <label for="email" class="pb-1 pt-2">Email <sup style="color:red">*</sup></label>
+        <input type="email" [(ngModel)]="email" name="email" #emailInput="ngModel" class="form-control" id="email" placeholder="Email" autocomplete="new-password"
+          pattern="^[a-zA-Z]+[a-zA-Z0-9._]+@gmail\.com$" required>
+        <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+          <div *ngIf="emailInput.hasError('required')">Email is required.</div>
+          <div *ngIf="emailInput.hasError('pattern')">Invalid email format.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="pb-1 pt-2">Password <sup style="color:red">*</sup></label>
+        <div class="password-input" style="position: relative;">
+          <input type="password" [(ngModel)]="password" name="password" #passwordInput="ngModel" autocomplete="new-password"
+            [type]="hide ? 'password' : 'text'" class="form-control" id="password" placeholder="Password" minlength="8" maxlength="20" required>
+          <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" class="toggle-password" style="position: absolute; right: 10px; top: 46%; transform: translateY(-50%);">
+            <mat-icon>
+              <i *ngIf="hide" class="bi bi-eye-slash-fill"></i>
+              <i *ngIf="!hide" class="bi bi-eye"></i>
+            </mat-icon>
+          </button>
+        </div>
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+          <div *ngIf="passwordInput.hasError('required')">Password is required.</div>
+        </div>
+      </div>
+      
+      <div class="forgot-password text-primary" style="cursor:pointer" (click)="ForgotPassword()">Forgot password?</div>
+
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <div class="text-center pt-2">Don't have an account? <a routerLink="/signup" style="color: blue;">Sign Up</a></div>
+  </div>
+</div>

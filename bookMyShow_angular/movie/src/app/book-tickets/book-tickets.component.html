@@ -1,0 +1,39 @@
+  <app-header></app-header>
+
+
+  <br><br><div class="movieTitle"><h1 style="font-size:35px"> {{ movieTitle }}</h1></div>
+
+  <hr>
+  <mat-form-field style="margin-left:20px">
+    <input matInput [matDatepicker]="picker" [min]="minDate" max="2024-04-07" [(ngModel)]="selectedDate" 
+    onkeydown="return false" (dateChange)="onDateSelect($event.value)" placeholder="Select a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+  <div>
+    <div style="background-color: white;margin-left:30px;width:80%;height:50%;margin-top:50px;border-radius:4px">
+      <div *ngFor="let theater of theaters"  class="theater-container" style="display:flex"><hr>
+     
+     <div class="col-8 col-md-3">
+      <h3 style="font-size:12px;"><b>{{ theater.name }} - {{ theater.location }}</b></h3>
+  </div>
+        <div class="show-timings-container">
+          <div *ngFor="let timing of theater.showTimings.split(',');let i=index;">
+              <button class="timing-box" style="border-radius:4px;width:120px;color: #4abd5d;background-color:white" 
+              [class.disabled]="!isFutureTimeForTiming(timing)"
+              [disabled]="!isFutureTimeForTiming(timing)" 
+              (click)="bookTickets(theater, timing)" 
+              (mouseenter)="setHoveredDetails(theater, timing)"
+              (mouseleave)="clearHoveredDetails()" >{{ timing }}</button>
+              <div *ngIf="isFutureTimeForTiming(timing) && hoveredTheater === theater && hoveredTiming === timing" class="ticket-price">
+                 {{ getTicketPrice(theater, i) }}
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+

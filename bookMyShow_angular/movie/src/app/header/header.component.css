@@ -1,0 +1,108 @@
+.ehNLUl {
+  display: flex;
+  max-width: 115px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+ 
+
+.noIEC {
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+  
+
+.fcOOgI {
+  margin-left: 24px;
+}
+.ePaTdj {
+  padding: 0px;
+  width: 100%;
+  background: rgb(31, 37, 51);
+  border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+
+.eDUTVN {
+  width: 100%;
+  background: rgb(245, 245, 245);
+  padding: 0px;
+}
+
+.ehingX {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  background: rgb(245, 245, 245);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.jfsXdp {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  height: 100%;
+}
+.ehingX {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  background: rgb(245, 245, 245);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.dTAxii {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0px 10px;
+  position: relative;
+  text-decoration: none;
+  font-weight: 400;
+  color: rgb(51, 51, 51);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+#offcanvasEnd{
+  font-size:small;
+}
+tr{
+  font-size:12px;
+}
+td{
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .noIEC {
+    margin-right:2px;
+  }
+  
+  .fcOOgI{
+    margin-left:10px;
+  }
+
+  td,th{
+    font-size:6px;
+  }
+}

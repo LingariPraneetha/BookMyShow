@@ -1,0 +1,27 @@
+/* .ticket-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .button-row {
+    margin-top: 20px;
+  }
+  
+  .button-row button {
+    margin-right: 10px;
+  } */ 
+  
+  .modal-content{
+    height:300px;
+  }
+
+  .modal-body .row{
+    margin-right:0px;
+  }
